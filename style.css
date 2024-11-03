@@ -11,7 +11,7 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f7f7f7;
+  background-color: #353535 !important;
   padding: 0 10px;
 }
 .wrapper{
@@ -241,12 +241,19 @@ body{
 .chat-area header{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 18px 30px;
 }
 .chat-area header .back-icon{
   color: #333;
   font-size: 18px;
 }
+
+.chat-area header .add-user{
+  color: #333;
+  font-size: 18px;
+}
+
 .chat-area header img{
   height: 45px;
   width: 45px;
@@ -409,4 +416,18 @@ body{
   .chat-area form button{
     width: 45px;
   }
+}
+
+.btn-report{
+  display: block;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 7px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 17px;
+  margin: 10px;
 }

@@ -1,11 +1,27 @@
 <?php 
   session_start();
   include_once "php/config.php";
+  include_once "header.php";
+
   if(!isset($_SESSION['unique_id'])){
     header("location: login.php");
   }
+  if (isset($_GET['sm']) && $_GET['sm'] == 'true') {
+    if (isset($_GET['vl']) && $_GET['vl'] == '0') {
+      echo '
+        <script>
+          alert("Se genero un reporte");
+        </script>
+      ';
+    }else{
+      echo '
+        <script>
+          alert("Error al Generar Reporte");
+        </script>
+      ';
+    }
+  }
 ?>
-<?php include_once "header.php"; ?>
 <body>
   <div class="wrapper">
     <section class="users">
@@ -31,12 +47,12 @@
         <button><i class="fas fa-search"></i></button>
       </div>
       <div class="users-list">
-  
       </div>
     </section>
   </div>
 
   <script src="javascript/users.js"></script>
+
 
 </body>
 </html>
