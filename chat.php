@@ -18,9 +18,14 @@
           }else{
             header("location: users.php");
           }
+
+          // Convertir el BLOB de la imagen a base64
+          $img_data = base64_encode($row['img']);
+          $img_type = "image/jpeg"; // Cambia esto según el tipo de imagen (jpeg, png, etc.)
+          $img_src = "data:$img_type;base64,$img_data";
         ?>
         <a href="users.php" class="back-icon"><i class="fas fa-arrow-left"></i></a>
-        <img src="php/images/<?php echo $row['img']; ?>" alt="">
+        <img src="<?php echo $img_src; ?>" alt="">
         <div class="details">
           <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
           <p><?php echo $row['status']; ?></p>

@@ -10,10 +10,10 @@
     if (isset($_GET['vl']) && $_GET['vl'] == '0') {
       echo '
         <script>
-          alert("Se genero un reporte");
+          alert("Se generó un reporte");
         </script>
       ';
-    }else{
+    } else {
       echo '
         <script>
           alert("Error al Generar Reporte");
@@ -31,11 +31,16 @@
             $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$_SESSION['unique_id']}");
             if(mysqli_num_rows($sql) > 0){
               $row = mysqli_fetch_assoc($sql);
+
+              // Convertir los datos BLOB a base64
+              $img_data = base64_encode($row['img']);
+              $img_type = "image/jpeg"; // Cambia esto según el tipo de imagen (jpeg, png, etc.)
+              $img_src = "data:$img_type;base64,$img_data";
             }
           ?>
-          <img src="php/images/<?php echo $row['img']; ?>" alt="">
+          <img src="<?php echo $img_src; ?>" alt="">
           <div class="details">
-            <span><?php echo $row['fname']. " " . $row['lname'] ?></span>
+            <span><?php echo $row['fname']. " " . $row['lname']; ?></span>
             <p><?php echo $row['status']; ?></p>
           </div>
         </div>
@@ -52,7 +57,5 @@
   </div>
 
   <script src="javascript/users.js"></script>
-
-
 </body>
 </html>

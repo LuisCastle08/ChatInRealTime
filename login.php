@@ -10,7 +10,7 @@
   <div class="wrapper">
     <section class="form login">
       <header>MALWARE CHAT</header>
-      <form action="#" method="POST" enctype="multipart/form-data" autocomplete="off">
+      <form action="php/login.php" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="error-text"></div>
         <div class="field input">
           <label>Correo Electronico</label>
@@ -30,7 +30,7 @@
   </div>
   
   <script src="javascript/pass-show-hide.js"></script>
-  <script src="javascript/login.js"></script>
+  <!-- <script src="javascript/login.js"></script> -->
 
 </body>
 </html>
